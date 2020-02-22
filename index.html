@@ -8,14 +8,25 @@
   </head>
   <body>
     <div class="wrap">
-      <h1>Practice JSON+CreateElement</h1>
-      <h2>可以問路的店名</h2>
-      <ul class="ul"></ul>
+      <h1>practice JSON / CreateElement / querySelectorAll</h1>
+      <div class="section">
+        <div class="box" id="box1">
+          <h2>Practice JSON+CreateElement</h2>
+          <h3>可以問路的店名</h3>
+          <ul class="storeOne"></ul>
+        </div>
+        <div class="box" id="box2">
+          <h2>Practice JSON+CreateElement+querySelectorAll</h2>
+          <h3>可以問路的店名</h3>
+          <ul class="storeTwo"></ul>
+        </div>
+      </div>
+      </div>
     </div>
   </body>
 </html>
 <script>
-  const dog = [
+  const store = [
     {
       type: "景點及交通",
       alias: "",
@@ -581,11 +592,41 @@
       distance: 0.0
     }
   ];
-  console.log(dog.length);
-  const el = document.querySelector(".ul");
-  for (let i = 0; i < dog.length; i++) {
+  const el = document.querySelector("#box1 .storeOne");
+  for (let i = 0; i < store.length; i++) {
     let str = document.createElement("li");
-    str.textContent = `門市：${dog[i].name}`;
+    str.textContent = `門市：${store[i].name}`;
     el.appendChild(str);
   }
+  const el2 = document.querySelector("#box2 .storeTwo");
+    for (let i = 0; i < store.length; i++) {
+      let str = document.createElement("li");
+      str.textContent = `門市：${store[i].name}`;
+      el2.appendChild(str);
+    }
+    const elLi = document.querySelectorAll("#box2 .storeTwo li")
+    for (let i = 0; i < elLi.length; i++) {
+      elLi[i].setAttribute("class", "li2");
+    }
+  
 </script>
+<style>
+.wrap{
+  margin: auto;
+  width: 1000px;
+}
+section{
+  margin:auto;
+}
+h1{
+  text-align: center;
+}
+.li2{
+  color: blue;
+}
+.box{
+  display: inline-block;
+  border: 2px solid pink;
+  padding: 20px;
+}
+</style>
